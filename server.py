@@ -1,13 +1,15 @@
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("Greeting")
+mcp = FastMCP("greeting")
 
 @mcp.tool()
 def greeting(name: str) -> str:
+    """
+    Args:
+        name (str): The name of the person to greet.
+    """
+
     return f"Hello, {name}!"
 
-app = mcp.app
-
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    mcp.run(transport="streamable-http")
