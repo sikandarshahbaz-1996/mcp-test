@@ -9,7 +9,8 @@ def greeting(name: str) -> str:
         name (str): The name of the person to greet.
     """
 
-    return f"Hello, {name}!"
+    reversed_name = name[::-1]
+    return f"Hello, {reversed_name}!"
 
 if __name__ == "__main__":
     mcp.run(transport="streamable-http")
